@@ -1,0 +1,44 @@
+options{  static = true;}PARSER_BEGIN(MiniJavaParser)
+
+public class MiniJavaParser{  public static void main(String args []) throws ParseException  {    try    {
+      MiniJavaParser parser = new MiniJavaParser(System.in);
+      parser.program();
+      System.out.println("Success.");           }    catch (Exception e)    {      System.out.println("Error.");      System.out.println(e.getMessage());    }  }}PARSER_END(MiniJavaParser)SKIP :{  " "| "\r"| "\t"| "\n"}TOKEN : /* OPERATORS */{  < PLUS : "+" >| < MINUS : "-" >| < MULTIPLY : "*" >| < DIVIDE : "/" >| < SMALLER : "<" >
+| < AND : "&&" >
+| < ASSIGNMENT : "=" >
+}
+TOKEN : /*  */
+{
+  < LPAREN : "(" >
+| < RPAREN : ")" >
+| < LBRACE : "{" >
+| < RBRACE : "}" >
+| < SEMICOLON : ";" >
+
+}
+
+TOKEN :{  < CONSTANT : (< DIGIT >)+ >| < #DIGIT : [ "0"-"9" ] >
+| < NUM : (< DIGIT >)+ >
+| < ID : ["A"-"Z","a"-"z"](["A"-"Z","a"-"z"]|< DIGIT >)* >} 
+TOKEN : {
+<RETURN: "return" >
+| < STATIC : "static" >
+| < WHILE : "while" >
+| < VOID : "void" >
+| < FOR : "for" >
+| < INT : "int" >
+| < IF : "if" > 
+| < EOF : "EOF" >
+}
+void program() :{}{
+  mainClass() (classDecl())* <EOF>}
+
+void mainClass() :
+{}{
+}
+
+void classDecl() :
+{}
+{	 
+}
+

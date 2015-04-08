@@ -1,0 +1,18 @@
+--- 
+name: JavaCC 4.2 Binary
+platform_id: all
+platform_version: all
+distribution_file_uuid_string: openlogic-javacc-4.2-all-bin-1
+platform_vendor: all
+version_visibility: public
+description: JavaCC 4.2 Binary
+platform_arch: all
+distribution_file_uuid: 112f97aea39ed1b87848ea61db29d1cfa21a1addcd2e03848f33c9da115d0c0c
+distribution_version: 1
+distribution_flavor: ""
+distribution_raw_file: javacc-4.2.tar.gz
+package_version: "4.2"
+package_id: javacc
+release_date: "2009-01-23"
+distribution_notes: ""
+distribution_type: bin

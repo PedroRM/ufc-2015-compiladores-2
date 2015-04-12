@@ -6,18 +6,16 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <LBRACE> ( statement() )* <RBRACE>
- *       | <IF> <LPAREN> exp() <RPAREN> statement() <ELSE> statement()
- *       | <WHILE> <LPAREN> exp() <RPAREN> statement()
- *       | <PRINT> <LPAREN> exp() <RPAREN> <SEMICOLON>
- *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
- *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
+ * f0 -> expAux()
+ * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
  */
-public class statement implements Node {
-   public NodeChoice f0;
+public class Exp implements Node {
+   public ExpAux f0;
+   public NodeOptional f1;
 
-   public statement(NodeChoice n0) {
+   public Exp(ExpAux n0, NodeOptional n1) {
       f0 = n0;
+      f1 = n1;
    }
 
    public void accept(visitor.Visitor v) {

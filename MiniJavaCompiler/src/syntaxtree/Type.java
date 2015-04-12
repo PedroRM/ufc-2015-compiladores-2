@@ -6,25 +6,16 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> type()
- * f1 -> <ID>
- * f2 -> <SEMICOLON>
+ * f0 -> <INT> <LBRACK> <RBRACK>
+ *       | <BOOL>
+ *       | <INT>
+ *       | <ID>
  */
-public class varDecl implements Node {
-   public type f0;
-   public NodeToken f1;
-   public NodeToken f2;
+public class Type implements Node {
+   public NodeChoice f0;
 
-   public varDecl(type n0, NodeToken n1, NodeToken n2) {
+   public Type(NodeChoice n0) {
       f0 = n0;
-      f1 = n1;
-      f2 = n2;
-   }
-
-   public varDecl(type n0, NodeToken n1) {
-      f0 = n0;
-      f1 = n1;
-      f2 = new NodeToken(";");
    }
 
    public void accept(visitor.Visitor v) {

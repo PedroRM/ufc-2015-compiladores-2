@@ -6,25 +6,25 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <COMMA>
- * f1 -> type()
- * f2 -> <ID>
+ * f0 -> type()
+ * f1 -> <ID>
+ * f2 -> <SEMICOLON>
  */
-public class formalRest implements Node {
-   public NodeToken f0;
-   public type f1;
+public class VarDecl implements Node {
+   public Type f0;
+   public NodeToken f1;
    public NodeToken f2;
 
-   public formalRest(NodeToken n0, type n1, NodeToken n2) {
+   public VarDecl(Type n0, NodeToken n1, NodeToken n2) {
       f0 = n0;
       f1 = n1;
       f2 = n2;
    }
 
-   public formalRest(type n0, NodeToken n1) {
-      f0 = new NodeToken(",");
-      f1 = n0;
-      f2 = n1;
+   public VarDecl(Type n0, NodeToken n1) {
+      f0 = n0;
+      f1 = n1;
+      f2 = new NodeToken(";");
    }
 
    public void accept(visitor.Visitor v) {

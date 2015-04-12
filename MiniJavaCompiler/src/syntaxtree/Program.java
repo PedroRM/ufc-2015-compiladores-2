@@ -6,16 +6,25 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> expAux()
- * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
+ * f0 -> mainClass()
+ * f1 -> ( classDecl() )*
+ * f2 -> <EOF>
  */
-public class exp implements Node {
-   public expAux f0;
-   public NodeOptional f1;
+public class Program implements Node {
+   public MainClass f0;
+   public NodeListOptional f1;
+   public NodeToken f2;
 
-   public exp(expAux n0, NodeOptional n1) {
+   public Program(MainClass n0, NodeListOptional n1, NodeToken n2) {
       f0 = n0;
       f1 = n1;
+      f2 = n2;
+   }
+
+   public Program(MainClass n0, NodeListOptional n1) {
+      f0 = n0;
+      f1 = n1;
+      f2 = new NodeToken("");
    }
 
    public void accept(visitor.Visitor v) {

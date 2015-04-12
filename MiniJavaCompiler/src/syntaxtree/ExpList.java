@@ -6,21 +6,16 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <FALSE>
- *       | <TRUE>
- *       | <ID>
- *       | <THIS>
- *       | <NUM>
- *       | <NEW> <ID> <LPAREN> <RPAREN>
- *       | <NEW> <INT> <LBRACK> exp() <RBRACK>
- *       | <LPAREN> exp() <RPAREN>
- *       | <EXCL> exp()
+ * f0 -> exp()
+ * f1 -> ( expRest() )*
  */
-public class expAux implements Node {
-   public NodeChoice f0;
+public class ExpList implements Node {
+   public Exp f0;
+   public NodeListOptional f1;
 
-   public expAux(NodeChoice n0) {
+   public ExpList(Exp n0, NodeListOptional n1) {
       f0 = n0;
+      f1 = n1;
    }
 
    public void accept(visitor.Visitor v) {

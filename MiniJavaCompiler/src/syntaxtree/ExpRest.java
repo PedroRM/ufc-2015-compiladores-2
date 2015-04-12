@@ -6,16 +6,21 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <INT> <LBRACK> <RBRACK>
- *       | <BOOL>
- *       | <INT>
- *       | <ID>
+ * f0 -> <COMMA>
+ * f1 -> exp()
  */
-public class type implements Node {
-   public NodeChoice f0;
+public class ExpRest implements Node {
+   public NodeToken f0;
+   public Exp f1;
 
-   public type(NodeChoice n0) {
+   public ExpRest(NodeToken n0, Exp n1) {
       f0 = n0;
+      f1 = n1;
+   }
+
+   public ExpRest(Exp n0) {
+      f0 = new NodeToken(",");
+      f1 = n0;
    }
 
    public void accept(visitor.Visitor v) {

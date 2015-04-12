@@ -31,7 +31,7 @@ public interface GJNoArguVisitor<R> {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public R visit(program n);
+   public R visit(Program n);
 
    /**
     * f0 -> <CLASS>
@@ -52,7 +52,7 @@ public interface GJNoArguVisitor<R> {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public R visit(mainClass n);
+   public R visit(MainClass n);
 
    /**
     * f0 -> <CLASS>
@@ -63,14 +63,14 @@ public interface GJNoArguVisitor<R> {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public R visit(classDecl n);
+   public R visit(ClassDecl n);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public R visit(varDecl n);
+   public R visit(VarDecl n);
 
    /**
     * f0 -> <PUBLIC>
@@ -87,21 +87,21 @@ public interface GJNoArguVisitor<R> {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public R visit(methodDecl n);
+   public R visit(MethodDecl n);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public R visit(formalList n);
+   public R visit(FormalList n);
 
    /**
     * f0 -> <COMMA>
     * f1 -> type()
     * f2 -> <ID>
     */
-   public R visit(formalRest n);
+   public R visit(FormalRest n);
 
    /**
     * f0 -> <INT> <LBRACK> <RBRACK>
@@ -109,7 +109,7 @@ public interface GJNoArguVisitor<R> {
     *       | <INT>
     *       | <ID>
     */
-   public R visit(type n);
+   public R visit(Type n);
 
    /**
     * f0 -> <LBRACE> ( statement() )* <RBRACE>
@@ -119,13 +119,13 @@ public interface GJNoArguVisitor<R> {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public R visit(statement n);
+   public R visit(Statement n);
 
    /**
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public R visit(exp n);
+   public R visit(Exp n);
 
    /**
     * f0 -> <FALSE>
@@ -138,19 +138,19 @@ public interface GJNoArguVisitor<R> {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public R visit(expAux n);
+   public R visit(ExpAux n);
 
    /**
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public R visit(expList n);
+   public R visit(ExpList n);
 
    /**
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public R visit(expRest n);
+   public R visit(ExpRest n);
 
    /**
     * f0 -> <AND>
@@ -159,7 +159,7 @@ public interface GJNoArguVisitor<R> {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public R visit(op n);
+   public R visit(Op n);
 
 }
 

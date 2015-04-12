@@ -31,7 +31,7 @@ public interface Visitor {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public void visit(program n);
+   public void visit(Program n);
 
    /**
     * f0 -> <CLASS>
@@ -52,7 +52,7 @@ public interface Visitor {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public void visit(mainClass n);
+   public void visit(MainClass n);
 
    /**
     * f0 -> <CLASS>
@@ -63,14 +63,14 @@ public interface Visitor {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public void visit(classDecl n);
+   public void visit(ClassDecl n);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public void visit(varDecl n);
+   public void visit(VarDecl n);
 
    /**
     * f0 -> <PUBLIC>
@@ -87,21 +87,21 @@ public interface Visitor {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public void visit(methodDecl n);
+   public void visit(MethodDecl n);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public void visit(formalList n);
+   public void visit(FormalList n);
 
    /**
     * f0 -> <COMMA>
     * f1 -> type()
     * f2 -> <ID>
     */
-   public void visit(formalRest n);
+   public void visit(FormalRest n);
 
    /**
     * f0 -> <INT> <LBRACK> <RBRACK>
@@ -109,7 +109,7 @@ public interface Visitor {
     *       | <INT>
     *       | <ID>
     */
-   public void visit(type n);
+   public void visit(Type n);
 
    /**
     * f0 -> <LBRACE> ( statement() )* <RBRACE>
@@ -119,13 +119,13 @@ public interface Visitor {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public void visit(statement n);
+   public void visit(Statement n);
 
    /**
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public void visit(exp n);
+   public void visit(Exp n);
 
    /**
     * f0 -> <FALSE>
@@ -138,19 +138,19 @@ public interface Visitor {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public void visit(expAux n);
+   public void visit(ExpAux n);
 
    /**
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public void visit(expList n);
+   public void visit(ExpList n);
 
    /**
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public void visit(expRest n);
+   public void visit(ExpRest n);
 
    /**
     * f0 -> <AND>
@@ -159,7 +159,7 @@ public interface Visitor {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public void visit(op n);
+   public void visit(Op n);
 
 }
 

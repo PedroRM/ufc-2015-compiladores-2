@@ -6,16 +6,25 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> exp()
- * f1 -> ( expRest() )*
+ * f0 -> <COMMA>
+ * f1 -> type()
+ * f2 -> <ID>
  */
-public class expList implements Node {
-   public exp f0;
-   public NodeListOptional f1;
+public class FormalRest implements Node {
+   public NodeToken f0;
+   public Type f1;
+   public NodeToken f2;
 
-   public expList(exp n0, NodeListOptional n1) {
+   public FormalRest(NodeToken n0, Type n1, NodeToken n2) {
       f0 = n0;
       f1 = n1;
+      f2 = n2;
+   }
+
+   public FormalRest(Type n0, NodeToken n1) {
+      f0 = new NodeToken(",");
+      f1 = n0;
+      f2 = n1;
    }
 
    public void accept(visitor.Visitor v) {

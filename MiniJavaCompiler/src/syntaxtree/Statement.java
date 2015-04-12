@@ -6,21 +6,18 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <COMMA>
- * f1 -> exp()
+ * f0 -> <LBRACE> ( statement() )* <RBRACE>
+ *       | <IF> <LPAREN> exp() <RPAREN> statement() <ELSE> statement()
+ *       | <WHILE> <LPAREN> exp() <RPAREN> statement()
+ *       | <PRINT> <LPAREN> exp() <RPAREN> <SEMICOLON>
+ *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
+ *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
  */
-public class expRest implements Node {
-   public NodeToken f0;
-   public exp f1;
+public class Statement implements Node {
+   public NodeChoice f0;
 
-   public expRest(NodeToken n0, exp n1) {
+   public Statement(NodeChoice n0) {
       f0 = n0;
-      f1 = n1;
-   }
-
-   public expRest(exp n0) {
-      f0 = new NodeToken(",");
-      f1 = n0;
    }
 
    public void accept(visitor.Visitor v) {

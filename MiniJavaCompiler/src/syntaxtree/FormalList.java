@@ -6,17 +6,19 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> <AND>
- *       | <SMALLER>
- *       | <PLUS>
- *       | <MINUS>
- *       | <MULTIPLY>
+ * f0 -> type()
+ * f1 -> <ID>
+ * f2 -> ( formalRest() )*
  */
-public class op implements Node {
-   public NodeChoice f0;
+public class FormalList implements Node {
+   public Type f0;
+   public NodeToken f1;
+   public NodeListOptional f2;
 
-   public op(NodeChoice n0) {
+   public FormalList(Type n0, NodeToken n1, NodeListOptional n2) {
       f0 = n0;
+      f1 = n1;
+      f2 = n2;
    }
 
    public void accept(visitor.Visitor v) {

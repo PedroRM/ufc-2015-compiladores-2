@@ -31,7 +31,7 @@ public interface GJVoidVisitor<A> {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public void visit(program n, A argu);
+   public void visit(Program n, A argu);
 
    /**
     * f0 -> <CLASS>
@@ -52,7 +52,7 @@ public interface GJVoidVisitor<A> {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public void visit(mainClass n, A argu);
+   public void visit(MainClass n, A argu);
 
    /**
     * f0 -> <CLASS>
@@ -63,14 +63,14 @@ public interface GJVoidVisitor<A> {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public void visit(classDecl n, A argu);
+   public void visit(ClassDecl n, A argu);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public void visit(varDecl n, A argu);
+   public void visit(VarDecl n, A argu);
 
    /**
     * f0 -> <PUBLIC>
@@ -87,21 +87,21 @@ public interface GJVoidVisitor<A> {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public void visit(methodDecl n, A argu);
+   public void visit(MethodDecl n, A argu);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public void visit(formalList n, A argu);
+   public void visit(FormalList n, A argu);
 
    /**
     * f0 -> <COMMA>
     * f1 -> type()
     * f2 -> <ID>
     */
-   public void visit(formalRest n, A argu);
+   public void visit(FormalRest n, A argu);
 
    /**
     * f0 -> <INT> <LBRACK> <RBRACK>
@@ -109,7 +109,7 @@ public interface GJVoidVisitor<A> {
     *       | <INT>
     *       | <ID>
     */
-   public void visit(type n, A argu);
+   public void visit(Type n, A argu);
 
    /**
     * f0 -> <LBRACE> ( statement() )* <RBRACE>
@@ -119,13 +119,13 @@ public interface GJVoidVisitor<A> {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public void visit(statement n, A argu);
+   public void visit(Statement n, A argu);
 
    /**
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public void visit(exp n, A argu);
+   public void visit(Exp n, A argu);
 
    /**
     * f0 -> <FALSE>
@@ -138,19 +138,19 @@ public interface GJVoidVisitor<A> {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public void visit(expAux n, A argu);
+   public void visit(ExpAux n, A argu);
 
    /**
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public void visit(expList n, A argu);
+   public void visit(ExpList n, A argu);
 
    /**
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public void visit(expRest n, A argu);
+   public void visit(ExpRest n, A argu);
 
    /**
     * f0 -> <AND>
@@ -159,7 +159,7 @@ public interface GJVoidVisitor<A> {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public void visit(op n, A argu);
+   public void visit(Op n, A argu);
 
 }
 

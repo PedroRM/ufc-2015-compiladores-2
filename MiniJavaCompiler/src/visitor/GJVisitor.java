@@ -31,7 +31,7 @@ public interface GJVisitor<R,A> {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public R visit(program n, A argu);
+   public R visit(Program n, A argu);
 
    /**
     * f0 -> <CLASS>
@@ -52,7 +52,7 @@ public interface GJVisitor<R,A> {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public R visit(mainClass n, A argu);
+   public R visit(MainClass n, A argu);
 
    /**
     * f0 -> <CLASS>
@@ -63,14 +63,14 @@ public interface GJVisitor<R,A> {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public R visit(classDecl n, A argu);
+   public R visit(ClassDecl n, A argu);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public R visit(varDecl n, A argu);
+   public R visit(VarDecl n, A argu);
 
    /**
     * f0 -> <PUBLIC>
@@ -87,21 +87,21 @@ public interface GJVisitor<R,A> {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public R visit(methodDecl n, A argu);
+   public R visit(MethodDecl n, A argu);
 
    /**
     * f0 -> type()
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public R visit(formalList n, A argu);
+   public R visit(FormalList n, A argu);
 
    /**
     * f0 -> <COMMA>
     * f1 -> type()
     * f2 -> <ID>
     */
-   public R visit(formalRest n, A argu);
+   public R visit(FormalRest n, A argu);
 
    /**
     * f0 -> <INT> <LBRACK> <RBRACK>
@@ -109,7 +109,7 @@ public interface GJVisitor<R,A> {
     *       | <INT>
     *       | <ID>
     */
-   public R visit(type n, A argu);
+   public R visit(Type n, A argu);
 
    /**
     * f0 -> <LBRACE> ( statement() )* <RBRACE>
@@ -119,13 +119,13 @@ public interface GJVisitor<R,A> {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public R visit(statement n, A argu);
+   public R visit(Statement n, A argu);
 
    /**
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public R visit(exp n, A argu);
+   public R visit(Exp n, A argu);
 
    /**
     * f0 -> <FALSE>
@@ -138,19 +138,19 @@ public interface GJVisitor<R,A> {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public R visit(expAux n, A argu);
+   public R visit(ExpAux n, A argu);
 
    /**
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public R visit(expList n, A argu);
+   public R visit(ExpList n, A argu);
 
    /**
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public R visit(expRest n, A argu);
+   public R visit(ExpRest n, A argu);
 
    /**
     * f0 -> <AND>
@@ -159,6 +159,6 @@ public interface GJVisitor<R,A> {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public R visit(op n, A argu);
+   public R visit(Op n, A argu);
 
 }

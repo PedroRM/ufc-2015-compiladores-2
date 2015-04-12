@@ -20,9 +20,9 @@ package syntaxtree;
  * f11 -> <SEMICOLON>
  * f12 -> <RBRACE>
  */
-public class methodDecl implements Node {
+public class MethodDecl implements Node {
    public NodeToken f0;
-   public type f1;
+   public Type f1;
    public NodeToken f2;
    public NodeToken f3;
    public NodeOptional f4;
@@ -31,11 +31,11 @@ public class methodDecl implements Node {
    public NodeListOptional f7;
    public NodeListOptional f8;
    public NodeToken f9;
-   public exp f10;
+   public Exp f10;
    public NodeToken f11;
    public NodeToken f12;
 
-   public methodDecl(NodeToken n0, type n1, NodeToken n2, NodeToken n3, NodeOptional n4, NodeToken n5, NodeToken n6, NodeListOptional n7, NodeListOptional n8, NodeToken n9, exp n10, NodeToken n11, NodeToken n12) {
+   public MethodDecl(NodeToken n0, Type n1, NodeToken n2, NodeToken n3, NodeOptional n4, NodeToken n5, NodeToken n6, NodeListOptional n7, NodeListOptional n8, NodeToken n9, Exp n10, NodeToken n11, NodeToken n12) {
       f0 = n0;
       f1 = n1;
       f2 = n2;
@@ -51,7 +51,7 @@ public class methodDecl implements Node {
       f12 = n12;
    }
 
-   public methodDecl(type n0, NodeToken n1, NodeOptional n2, NodeListOptional n3, NodeListOptional n4, exp n5) {
+   public MethodDecl(Type n0, NodeToken n1, NodeOptional n2, NodeListOptional n3, NodeListOptional n4, Exp n5) {
       f0 = new NodeToken("public");
       f1 = n0;
       f2 = n1;

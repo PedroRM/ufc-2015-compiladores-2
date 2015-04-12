@@ -24,7 +24,7 @@ package syntaxtree;
  * f15 -> <RBRACE>
  * f16 -> <RBRACE>
  */
-public class mainClass implements Node {
+public class MainClass implements Node {
    public NodeToken f0;
    public NodeToken f1;
    public NodeToken f2;
@@ -39,11 +39,11 @@ public class mainClass implements Node {
    public NodeToken f11;
    public NodeToken f12;
    public NodeToken f13;
-   public statement f14;
+   public Statement f14;
    public NodeToken f15;
    public NodeToken f16;
 
-   public mainClass(NodeToken n0, NodeToken n1, NodeToken n2, NodeToken n3, NodeToken n4, NodeToken n5, NodeToken n6, NodeToken n7, NodeToken n8, NodeToken n9, NodeToken n10, NodeToken n11, NodeToken n12, NodeToken n13, statement n14, NodeToken n15, NodeToken n16) {
+   public MainClass(NodeToken n0, NodeToken n1, NodeToken n2, NodeToken n3, NodeToken n4, NodeToken n5, NodeToken n6, NodeToken n7, NodeToken n8, NodeToken n9, NodeToken n10, NodeToken n11, NodeToken n12, NodeToken n13, Statement n14, NodeToken n15, NodeToken n16) {
       f0 = n0;
       f1 = n1;
       f2 = n2;
@@ -63,7 +63,7 @@ public class mainClass implements Node {
       f16 = n16;
    }
 
-   public mainClass(NodeToken n0, NodeToken n1, statement n2) {
+   public MainClass(NodeToken n0, NodeToken n1, Statement n2) {
       f0 = new NodeToken("class");
       f1 = n0;
       f2 = new NodeToken("{");

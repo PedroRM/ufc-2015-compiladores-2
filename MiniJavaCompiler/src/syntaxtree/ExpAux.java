@@ -6,19 +6,21 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> type()
- * f1 -> <ID>
- * f2 -> ( formalRest() )*
+ * f0 -> <FALSE>
+ *       | <TRUE>
+ *       | <ID>
+ *       | <THIS>
+ *       | <NUM>
+ *       | <NEW> <ID> <LPAREN> <RPAREN>
+ *       | <NEW> <INT> <LBRACK> exp() <RBRACK>
+ *       | <LPAREN> exp() <RPAREN>
+ *       | <EXCL> exp()
  */
-public class formalList implements Node {
-   public type f0;
-   public NodeToken f1;
-   public NodeListOptional f2;
+public class ExpAux implements Node {
+   public NodeChoice f0;
 
-   public formalList(type n0, NodeToken n1, NodeListOptional n2) {
+   public ExpAux(NodeChoice n0) {
       f0 = n0;
-      f1 = n1;
-      f2 = n2;
    }
 
    public void accept(visitor.Visitor v) {

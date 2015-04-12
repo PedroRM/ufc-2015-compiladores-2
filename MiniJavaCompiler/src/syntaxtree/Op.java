@@ -6,25 +6,17 @@ package syntaxtree;
 
 /**
  * Grammar production:
- * f0 -> mainClass()
- * f1 -> ( classDecl() )*
- * f2 -> <EOF>
+ * f0 -> <AND>
+ *       | <SMALLER>
+ *       | <PLUS>
+ *       | <MINUS>
+ *       | <MULTIPLY>
  */
-public class program implements Node {
-   public mainClass f0;
-   public NodeListOptional f1;
-   public NodeToken f2;
+public class Op implements Node {
+   public NodeChoice f0;
 
-   public program(mainClass n0, NodeListOptional n1, NodeToken n2) {
+   public Op(NodeChoice n0) {
       f0 = n0;
-      f1 = n1;
-      f2 = n2;
-   }
-
-   public program(mainClass n0, NodeListOptional n1) {
-      f0 = n0;
-      f1 = n1;
-      f2 = new NodeToken("");
    }
 
    public void accept(visitor.Visitor v) {

@@ -46,7 +46,7 @@ public class DepthFirstVisitor implements Visitor {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public void visit(program n) {
+   public void visit(Program n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -71,7 +71,7 @@ public class DepthFirstVisitor implements Visitor {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public void visit(mainClass n) {
+   public void visit(MainClass n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -100,7 +100,7 @@ public class DepthFirstVisitor implements Visitor {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public void visit(classDecl n) {
+   public void visit(ClassDecl n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -115,7 +115,7 @@ public class DepthFirstVisitor implements Visitor {
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public void visit(varDecl n) {
+   public void visit(VarDecl n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -136,7 +136,7 @@ public class DepthFirstVisitor implements Visitor {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public void visit(methodDecl n) {
+   public void visit(MethodDecl n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -157,7 +157,7 @@ public class DepthFirstVisitor implements Visitor {
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public void visit(formalList n) {
+   public void visit(FormalList n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -168,7 +168,7 @@ public class DepthFirstVisitor implements Visitor {
     * f1 -> type()
     * f2 -> <ID>
     */
-   public void visit(formalRest n) {
+   public void visit(FormalRest n) {
       n.f0.accept(this);
       n.f1.accept(this);
       n.f2.accept(this);
@@ -180,7 +180,7 @@ public class DepthFirstVisitor implements Visitor {
     *       | <INT>
     *       | <ID>
     */
-   public void visit(type n) {
+   public void visit(Type n) {
       n.f0.accept(this);
    }
 
@@ -192,7 +192,7 @@ public class DepthFirstVisitor implements Visitor {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public void visit(statement n) {
+   public void visit(Statement n) {
       n.f0.accept(this);
    }
 
@@ -200,7 +200,7 @@ public class DepthFirstVisitor implements Visitor {
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public void visit(exp n) {
+   public void visit(Exp n) {
       n.f0.accept(this);
       n.f1.accept(this);
    }
@@ -216,7 +216,7 @@ public class DepthFirstVisitor implements Visitor {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public void visit(expAux n) {
+   public void visit(ExpAux n) {
       n.f0.accept(this);
    }
 
@@ -224,7 +224,7 @@ public class DepthFirstVisitor implements Visitor {
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public void visit(expList n) {
+   public void visit(ExpList n) {
       n.f0.accept(this);
       n.f1.accept(this);
    }
@@ -233,7 +233,7 @@ public class DepthFirstVisitor implements Visitor {
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public void visit(expRest n) {
+   public void visit(ExpRest n) {
       n.f0.accept(this);
       n.f1.accept(this);
    }
@@ -245,7 +245,7 @@ public class DepthFirstVisitor implements Visitor {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public void visit(op n) {
+   public void visit(Op n) {
       n.f0.accept(this);
    }
 

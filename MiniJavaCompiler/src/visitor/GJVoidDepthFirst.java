@@ -56,7 +56,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f1 -> ( classDecl() )*
     * f2 -> <EOF>
     */
-   public void visit(program n, A argu) {
+   public void visit(Program n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -81,7 +81,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f15 -> <RBRACE>
     * f16 -> <RBRACE>
     */
-   public void visit(mainClass n, A argu) {
+   public void visit(MainClass n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -110,7 +110,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f5 -> ( methodDecl() )*
     * f6 -> <RBRACE>
     */
-   public void visit(classDecl n, A argu) {
+   public void visit(ClassDecl n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -125,7 +125,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f1 -> <ID>
     * f2 -> <SEMICOLON>
     */
-   public void visit(varDecl n, A argu) {
+   public void visit(VarDecl n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -146,7 +146,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f11 -> <SEMICOLON>
     * f12 -> <RBRACE>
     */
-   public void visit(methodDecl n, A argu) {
+   public void visit(MethodDecl n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -167,7 +167,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f1 -> <ID>
     * f2 -> ( formalRest() )*
     */
-   public void visit(formalList n, A argu) {
+   public void visit(FormalList n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -178,7 +178,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f1 -> type()
     * f2 -> <ID>
     */
-   public void visit(formalRest n, A argu) {
+   public void visit(FormalRest n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
       n.f2.accept(this, argu);
@@ -190,7 +190,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     *       | <INT>
     *       | <ID>
     */
-   public void visit(type n, A argu) {
+   public void visit(Type n, A argu) {
       n.f0.accept(this, argu);
    }
 
@@ -202,7 +202,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     *       | <ID> <ASSIGNMENT> exp() <SEMICOLON>
     *       | <ID> <LBRACK> exp() <RBRACK> <ASSIGNMENT> exp() <SEMICOLON>
     */
-   public void visit(statement n, A argu) {
+   public void visit(Statement n, A argu) {
       n.f0.accept(this, argu);
    }
 
@@ -210,7 +210,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f0 -> expAux()
     * f1 -> ( op() exp() | <LBRACK> exp() <RBRACK> | <DOT> ( <LENGTH> | <ID> <LPAREN> ( expList() )? <RPAREN> ) )?
     */
-   public void visit(exp n, A argu) {
+   public void visit(Exp n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
    }
@@ -226,7 +226,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     *       | <LPAREN> exp() <RPAREN>
     *       | <EXCL> exp()
     */
-   public void visit(expAux n, A argu) {
+   public void visit(ExpAux n, A argu) {
       n.f0.accept(this, argu);
    }
 
@@ -234,7 +234,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f0 -> exp()
     * f1 -> ( expRest() )*
     */
-   public void visit(expList n, A argu) {
+   public void visit(ExpList n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
    }
@@ -243,7 +243,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     * f0 -> <COMMA>
     * f1 -> exp()
     */
-   public void visit(expRest n, A argu) {
+   public void visit(ExpRest n, A argu) {
       n.f0.accept(this, argu);
       n.f1.accept(this, argu);
    }
@@ -255,7 +255,7 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
     *       | <MINUS>
     *       | <MULTIPLY>
     */
-   public void visit(op n, A argu) {
+   public void visit(Op n, A argu) {
       n.f0.accept(this, argu);
    }
 

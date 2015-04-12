@@ -14,7 +14,7 @@ package syntaxtree;
  * f5 -> ( methodDecl() )*
  * f6 -> <RBRACE>
  */
-public class classDecl implements Node {
+public class ClassDecl implements Node {
    public NodeToken f0;
    public NodeToken f1;
    public NodeOptional f2;
@@ -23,7 +23,7 @@ public class classDecl implements Node {
    public NodeListOptional f5;
    public NodeToken f6;
 
-   public classDecl(NodeToken n0, NodeToken n1, NodeOptional n2, NodeToken n3, NodeListOptional n4, NodeListOptional n5, NodeToken n6) {
+   public ClassDecl(NodeToken n0, NodeToken n1, NodeOptional n2, NodeToken n3, NodeListOptional n4, NodeListOptional n5, NodeToken n6) {
       f0 = n0;
       f1 = n1;
       f2 = n2;
@@ -33,7 +33,7 @@ public class classDecl implements Node {
       f6 = n6;
    }
 
-   public classDecl(NodeToken n0, NodeOptional n1, NodeListOptional n2, NodeListOptional n3) {
+   public ClassDecl(NodeToken n0, NodeOptional n1, NodeListOptional n2, NodeListOptional n3) {
       f0 = new NodeToken("class");
       f1 = n0;
       f2 = n1;
